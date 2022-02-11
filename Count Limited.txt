@@ -1,0 +1,4 @@
+Count Limited
+
+Selects only those values with a count 
+greater than 1% of the total count

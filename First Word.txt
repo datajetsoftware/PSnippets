@@ -1,0 +1,4 @@
+First Word
+
+Selects the first word from a multi word string
+

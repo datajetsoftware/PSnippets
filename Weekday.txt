@@ -1,0 +1,3 @@
+Weekday
+
+returns the day of week in English

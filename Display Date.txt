@@ -1,0 +1,7 @@
+Display Date
+
+Formats a date as expanded string
+
+2020-01-02 becomes Thursday 2 January 2020
+
+exceptions will be assigned to null

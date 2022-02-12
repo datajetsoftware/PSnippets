@@ -1,0 +1,3 @@
+Nomalize
+
+Normalizes a numeric field to 0-1

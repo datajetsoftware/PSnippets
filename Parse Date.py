@@ -26,6 +26,10 @@ for line in inputArray:
         dt = datetime.strptime(line, '%d %B %Y').date()
         processed = str(dt)
     except:
-        processed=""
+        try:
+            dt = datetime.strptime(line, '%d %b %Y').date()
+            processed = str(dt)
+        except:
+            processed=""
     oFile.write(processed+'\n')
 oFile.close()

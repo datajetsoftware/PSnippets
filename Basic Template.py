@@ -16,8 +16,11 @@ iFile.close()
 oFile = open(outputfile, 'w') #write to file
 for line in inputArray:
 #
-#process the lines here
-    processed = line #simply copies the source string
+    try:
+        #process the lines here
+        processed = line #simply copies the source string
+    except:
+        processed="" #assign to null on exception
 #endif    
 #
     oFile.write(processed+'\n') 

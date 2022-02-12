@@ -1,10 +1,8 @@
 Parse Date
 
-Parse full/abberviated date string to form standard date string YYYY-MM-DD
+Parse full/abberviated date string to form standard date YYYY-MM-DD
 
 1 April 2020 or 1 Apr 2020 becomes 2020-04-01
 
 Exceptions will be assigned to null
 
-Use engineering function String- DATEFROMSTRING(A,B) with B = #YYYY-MM-DD 
-to transform this field to an actual date field

@@ -1,0 +1,9 @@
+Parse Date
+
+Parse full date string of form  day month name year
+E.g. 1 April 2020 becomes 2020-04-01
+
+Exceptions will be assigned to null
+
+[then use engineering function String- DATEFROMSTRING(A,B)
+with B = #YYYY-MM-DD to transform this new an actual date field]

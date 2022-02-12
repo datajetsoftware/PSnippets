@@ -1,0 +1,4 @@
+Auto Standard Banding
+
+Auto bands a number in 15 bands between -1.5 and 1.5
+ standard deviations from its mean

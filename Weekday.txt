@@ -1,3 +1,10 @@
 Weekday
 
-returns the day of week in English
+Returns the day of week in English
+
+The source field must be either:
+
+	- Type DATE
+	- A string of form YYYY-MM-DD
+
+Invalid entries will be assigned to NULL

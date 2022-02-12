@@ -1,4 +1,5 @@
-
+#calculates the weekday of a date field or date formatted string field
+#exceptions will be assigned to null
 import sys
 from datetime import datetime
 
@@ -16,7 +17,10 @@ days = ['Monday', 'Tuesday', 'Wednesday',
 
 oFile = open(outputfile, 'w') #write to file
 for line in inputArray:
-    dt = datetime.strptime(line, '%Y-%m-%d').date()
-    processed = days[datetime.weekday(dt)]
+    try:
+        dt = datetime.strptime(line, '%Y-%m-%d').date()
+        processed = days[datetime.weekday(dt)]
+    except:
+        processed=""
     oFile.write(processed+'\n')
 oFile.close()

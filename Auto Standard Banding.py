@@ -2,6 +2,15 @@
 import sys
 import math
 
+stdRange = 2.5 #lower and upper standard deviations from mean
+stdBands = 16 #number of bands
+rounding = 0 #rounding for bandings 0=integer
+
+
+if stdBands==0:
+    sys.stderr.write( "stdBands was zero\n" )
+    exit()
+
 #input and output files from first 2 arguments  
 inputfile = sys.argv[1]
 outputfile = sys.argv[2]
@@ -18,6 +27,21 @@ scountArray = iFile.read().splitlines()
 iFile.close()
     
 n = len(inputArray)
+
+
+stdIncrement = (stdRange*2)/stdBands
+
+splitAt = []
+
+val = -stdRange
+
+splitAt.append(val)
+
+for x in range(0,stdBands):
+    val += stdIncrement
+    splitAt.append(val)    
+
+
 
 sum = 0.0;
 sum2 = 0.0;
@@ -42,26 +66,36 @@ if stdev==0:
     exit()
 
 
-lowr = [-1.5,-1.3125,-1.125,-0.9375,-0.75,-0.5625,-0.375,-0.1875,0,0.1875,0.375,0.5625,0.75,0.9375,1.125,1.3125]
-hir = [-1.3125,-1.125,-0.9375,-0.75,-0.5625,-0.375,-0.1875,0,0.1875,0.375,0.5625,0.75,0.9375,1.125,1.3125,1.5]
+
+for x in range(0,stdBands+1):
+    splitAt[x] = round(splitAt[x]*stdev+avg,rounding)
+        
+lowr = []
+hir = []
+
+for x in range(0,stdBands):
+    lowr.append(splitAt[x])
+    hir.append(splitAt[x+1])
+
+
 
 
 label = []
 
-for y in range(0,16):
-    label.append( str(y).rjust(2, '0') +" "+  str( round(lowr[y]*stdev+avg,2) )+' - ' + str( round(hir[y]*stdev+avg,2) ))
-
+for y in range(0,stdBands):
+    if rounding==0:
+        label.append( str(y).rjust(2, '0') +" "+  str( int(lowr[y]) )+' - ' + str( int(hir[y]) ))
+    else:        
+        label.append( str(y).rjust(2, '0') +" "+  str( lowr[y] )+' - ' + str( hir[y] ))
 
 oFile = open(outputfile, 'w') #write to file
 for x in range(0,n):
 
     
     val = float(inputArray[x]) 
-    val -= avg
-    val /= stdev
     
     processed=""
-    for y in range(0,16):
+    for y in range(0,stdBands):
         if(val >= lowr[y] and val < hir[y]):
             processed=label[y] #str(y)
             break;

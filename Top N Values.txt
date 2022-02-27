@@ -1,0 +1,6 @@
+Creates a field where the top N (by count) values are preserved
+and all other values are set to "Other"
+
+null is preserved
+
+

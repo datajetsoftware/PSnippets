@@ -2,6 +2,7 @@
 import sys
 
 N=3    #want the top N by count; the rest into other. null stays null
+default="Other" #bin name of all other non-null values
 
 #input and output files from first 2 arguments  
 inputfile = sys.argv[1]
@@ -39,7 +40,7 @@ for x in range(0,size):
         if counts[x] >= threshold:
             processed = inputArray[x] #simply copies the source string
         else:
-            processed = "Other"
+            processed = default
     except:
         processed="error" #assign to null on exception
 #endif    

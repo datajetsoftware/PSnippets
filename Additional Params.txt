@@ -1,0 +1,8 @@
+Example of passing parameters
+
+Code must be able to run without parameters
+Add a string array, “params” to Script
+
+	params: ["10"] 
+
+Will set left to 10.

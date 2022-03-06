@@ -1,4 +1,5 @@
 Example of passing parameters
+(Requires 4.3.7.1 or higher)
 
 Code must be able to run without parameters
 Add a string array, “params” to Script

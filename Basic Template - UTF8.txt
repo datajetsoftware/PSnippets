@@ -1,0 +1,5 @@
+Basic Template
+
+Simple algorithm for processing smaller fields.
+Modified for unicode (utf8) characters
+
